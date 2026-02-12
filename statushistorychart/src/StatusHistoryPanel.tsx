@@ -59,14 +59,20 @@ export function StatusHistoryPanel(props: StatusHistoryChartPanelProps): ReactEl
         }
       >
         {({ height, width }) => {
+          const rowCount = yAxisCategories.length;
+          const chartHeight =
+            rowCount > 0 && typeof spec.rowHeight === 'number'
+              ? rowCount * spec.rowHeight
+              : height;
+
           return (
-            <Box sx={{ height, width }}>
+            <Box sx={{ height, width, overflow: 'auto' }}>
               <StatusHistoryChartBase
                 xAxisCategories={xAxisCategories}
                 yAxisCategories={yAxisCategories}
                 data={statusHistoryData ?? []}
                 timeScale={timeScale}
-                height={height}
+                height={chartHeight}
                 colors={colors}
               />
             </Box>

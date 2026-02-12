@@ -22,6 +22,7 @@ export interface StatusHistoryChartOptions {
   legend?: LegendSpecOptions;
   mappings?: ValueMapping[];
   sorting?: StatusHistorySorting;
+  rowHeight?: 'auto' | number;
 }
 
 export type StatusHistorySorting = 'asc' | 'desc';
